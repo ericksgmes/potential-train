@@ -1,4 +1,4 @@
-package com.pw3.application.conserto.create;
+package com.pw3.application.conserto.post;
 
 import com.pw3.domain.conserto.Conserto;
 import com.pw3.infrastructure.conserto.ConsertoRepository;
@@ -16,8 +16,8 @@ public class CreateConsertoServiceImpl implements CreateConsertoService {
     private final ConsertoRepository consertoRepository;
 
     @Override
-    public ResponseEntity create(ConsertoDto consertoDto, UriComponentsBuilder uriBuilder) {
-        var conserto = new Conserto(consertoDto);
+    public ResponseEntity create(RequestModel requestModel, UriComponentsBuilder uriBuilder) {
+        var conserto = new Conserto(requestModel);
 
         consertoRepository.save(conserto);
 
