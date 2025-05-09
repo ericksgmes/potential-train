@@ -1,5 +1,6 @@
 package com.pw3.application.conserto.patch;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -12,6 +13,8 @@ public interface RegistraSaidaService {
 
     record RequestModel(
             Long id,
+
+            @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
             Date dataSaida
     ) { }
 }
