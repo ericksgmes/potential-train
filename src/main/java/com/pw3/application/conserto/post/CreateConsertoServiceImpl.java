@@ -16,7 +16,7 @@ public class CreateConsertoServiceImpl implements CreateConsertoService {
     private final ConsertoRepository consertoRepository;
 
     @Override
-    public ResponseEntity create(RequestModel requestModel, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<Conserto> create(RequestModel requestModel, UriComponentsBuilder uriBuilder) {
         var conserto = new Conserto(requestModel);
 
         consertoRepository.save(conserto);

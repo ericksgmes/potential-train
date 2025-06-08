@@ -5,20 +5,27 @@ import com.pw3.domain.mecanico.Mecanico;
 import com.pw3.domain.veiculo.Veiculo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "consertos")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Conserto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @EqualsAndHashCode.Include
+    @Column(nullable = false, unique = true, updatable = false)
+    private final String uuid = UUID.randomUUID().toString();
 
     private Date dataDeEntrada;
     private Date dataDeSaida;

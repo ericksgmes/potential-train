@@ -1,6 +1,7 @@
 package com.pw3.application.conserto.patch;
 
 import com.pw3.application.conserto.post.CreateConsertoService;
+import com.pw3.application.util.ConsertoNotFoundException;
 import com.pw3.infrastructure.conserto.ConsertoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -17,8 +18,7 @@ public class RegistraSaidaServiceImpl implements RegistraSaidaService {
     @Override
     public ResponseEntity registraSaida(RequestModel requestModel, UriComponentsBuilder uriBuilder) {
         var conserto = consertoRepository.findById(requestModel.id())
-                .orElseThrow(() -> new EntityNotFoundException(
-                "Conserto não encontrado com id " + requestModel.id()));
+                .orElseThrow(() -> new ConsertoNotFoundException(requestModel.id()));
 
         conserto.registraSaida(requestModel.dataSaida());
 

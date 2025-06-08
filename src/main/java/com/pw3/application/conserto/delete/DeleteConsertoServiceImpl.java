@@ -1,5 +1,6 @@
 package com.pw3.application.conserto.delete;
 
+import com.pw3.application.util.ConsertoNotFoundException;
 import com.pw3.domain.conserto.Conserto;
 import com.pw3.infrastructure.conserto.ConsertoRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -20,13 +21,10 @@ public class DeleteConsertoServiceImpl implements DeleteConsertoService {
     public void delete(Long id) {
         Conserto conserto = consertoRepository
                 .findByIdAndAtivoTrue(id)
-                .orElseThrow(() -> new EntityNotFoundException(
-                        "Conserto não encontrado com id " + id));
+                .orElseThrow(() -> new ConsertoNotFoundException(id));
 
-        // marca como inativo
         conserto.excluir();
 
-        // persiste a mudança
         consertoRepository.save(conserto);
     }
 }

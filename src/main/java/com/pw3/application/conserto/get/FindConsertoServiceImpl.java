@@ -1,5 +1,6 @@
 package com.pw3.application.conserto.get;
 
+import com.pw3.application.util.ConsertoNotFoundException;
 import com.pw3.domain.conserto.Conserto;
 import com.pw3.infrastructure.conserto.ConsertoDto;
 import com.pw3.infrastructure.conserto.ConsertoRepository;
@@ -32,8 +33,7 @@ public class FindConsertoServiceImpl implements FindConsertoService {
     public ResponseEntity<ConsertoDto> buscarPorId(Long id) {
         Conserto conserto = consertoRepository
                 .findByIdAndAtivoTrue(id)
-                .orElseThrow(() -> new EntityNotFoundException(
-                        "Conserto não encontrado com id " + id));
+                .orElseThrow(() -> new ConsertoNotFoundException(id));
 
         ConsertoDto dto = ConsertoDto.fromDomain(conserto);
         return ResponseEntity.ok(dto);
