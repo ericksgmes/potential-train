@@ -1,6 +1,6 @@
 package com.pw3.infrastructure.usuarios;
 
-import com.pw3.domain.Usuario;
+import com.pw3.domain.usuario.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 

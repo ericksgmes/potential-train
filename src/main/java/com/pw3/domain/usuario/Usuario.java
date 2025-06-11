@@ -1,4 +1,4 @@
-package com.pw3.domain;
+package com.pw3.domain.usuario;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-
 public class Usuario implements UserDetails {
 
     @Id
