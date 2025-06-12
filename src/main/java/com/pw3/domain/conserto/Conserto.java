@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -27,8 +28,8 @@ public class Conserto {
     @Column(nullable = false, unique = true, updatable = false)
     private final String uuid = UUID.randomUUID().toString();
 
-    private Date dataDeEntrada;
-    private Date dataDeSaida;
+    private LocalDate dataDeEntrada;
+    private LocalDate dataDeSaida;
     private boolean ativo;
 
     @Embedded
@@ -43,7 +44,7 @@ public class Conserto {
         this.ativo = true;
     }
 
-    public void registraSaida(Date dataSaida) { this.dataDeSaida = dataSaida; }
+    public void registraSaida(LocalDate dataSaida) { this.dataDeSaida = dataSaida; }
 
     public void excluir() {
         this.ativo = false;

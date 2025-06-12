@@ -5,15 +5,17 @@ import com.pw3.domain.mecanico.Mecanico;
 import com.pw3.domain.veiculo.Veiculo;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 public record ConsertoDto(
 
         @NotNull
-        Date dataEntrada,
+        LocalDate dataEntrada,
 
         @NotNull
-        Date dataSaida,
+        LocalDate dataSaida,
 
         @Valid @NotNull
         Mecanico mecanico,

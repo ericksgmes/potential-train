@@ -3,6 +3,7 @@ package com.pw3.application.conserto.get;
 import com.pw3.domain.conserto.Conserto;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +18,8 @@ public interface ResumoConsertoService {
 
     public record ConsertoResumoDTO(
             Long id,
-            Date dataEntrada,
-            Date dataSaida,
+            LocalDate dataEntrada,
+            LocalDate dataSaida,
             String nomeMecanico,
             String marcaVeiculo,
             String modeloVeiculo

@@ -1,11 +1,9 @@
 package com.pw3.web.conserto.controller;
 
-import com.pw3.application.usuario.AuthServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -21,30 +19,17 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfigurations {
 
     private final SecurityFilter securityFilter;
-    private final AuthServiceImpl authService;
 
-    public SecurityConfigurations(SecurityFilter securityFilter,
-                                  AuthServiceImpl authService) {
+    public SecurityConfigurations(SecurityFilter securityFilter) {
         this.securityFilter = securityFilter;
-        this.authService    = authService;
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder) {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(authService);
-        provider.setPasswordEncoder(passwordEncoder);
-        return provider;
-    }
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http,
-                                           DaoAuthenticationProvider authProvider) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(sm ->
                         sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authenticationProvider(authProvider)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
                         .anyRequest().authenticated()

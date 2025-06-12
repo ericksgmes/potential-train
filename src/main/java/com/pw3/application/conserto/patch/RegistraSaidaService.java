@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public interface RegistraSaidaService {
@@ -15,6 +16,6 @@ public interface RegistraSaidaService {
             Long id,
 
             @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-            Date dataSaida
+            LocalDate dataSaida
     ) { }
 }
