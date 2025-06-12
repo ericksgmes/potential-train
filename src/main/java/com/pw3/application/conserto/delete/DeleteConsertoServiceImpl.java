@@ -1,9 +1,8 @@
 package com.pw3.application.conserto.delete;
 
-import com.pw3.application.util.ConsertoNotFoundException;
+import com.pw3.util.ConsertoNotFoundException;
 import com.pw3.domain.conserto.Conserto;
 import com.pw3.infrastructure.conserto.ConsertoRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

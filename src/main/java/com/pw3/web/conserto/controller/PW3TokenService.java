@@ -1,4 +1,4 @@
-package com.pw3.web.conserto.security;
+package com.pw3.web.conserto.controller;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -13,9 +13,8 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
-
 @Service
-public class MecanicaTokenService {
+public class PW3TokenService {
 
     @Value("${john.java}")
     private String secret;
@@ -41,7 +40,6 @@ public class MecanicaTokenService {
     }
 
 
-    // Valida o token, e recupera o subject (login) dentro do token:
     public String getSubject(String tokenJWT) {
 
         try {

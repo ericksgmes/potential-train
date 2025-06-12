@@ -1,10 +1,9 @@
 package com.pw3.application.conserto.get;
 
-import com.pw3.application.util.ConsertoNotFoundException;
+import com.pw3.util.ConsertoNotFoundException;
 import com.pw3.domain.conserto.Conserto;
 import com.pw3.infrastructure.conserto.ConsertoDto;
 import com.pw3.infrastructure.conserto.ConsertoRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

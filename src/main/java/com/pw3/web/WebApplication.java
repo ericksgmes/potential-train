@@ -7,7 +7,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableJpaRepositories(basePackages = "com.pw3.infrastructure")
 @EntityScan(basePackages = "com.pw3.domain")
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+		"com.pw3.web.conserto",
+		"com.pw3.application.usuario"
+})
 
 public class WebApplication {
 

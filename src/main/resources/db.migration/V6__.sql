@@ -1,2 +1,2 @@
 INSERT INTO usuarios (login, senha)
-VALUES ('putaria@gmail.com', '$2a$12$K4Q.r34Tjaqt1d7FWtPrb.yN6jySt2OzWv3qOrGtyY5Rv1aRGoUP2');
+VALUES ('joao@gmail.com', '$2a$10$xLQf1Kbm/.YoSx6/9d9zJu4GZ7ArXEiycMwrdBi6MwtjJ5PIEtcSu');

@@ -2,7 +2,7 @@ package com.pw3.domain.usuario;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record authData(
+public record DadosAutenticacaoDto(
         @NotBlank
         String login,
 

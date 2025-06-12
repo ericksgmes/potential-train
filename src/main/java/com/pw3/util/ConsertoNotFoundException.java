@@ -1,4 +1,4 @@
-package com.pw3.application.util;
+package com.pw3.util;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

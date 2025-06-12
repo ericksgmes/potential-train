@@ -40,5 +40,4 @@ public class ConsertoControllerConfiguration {
     public DeleteConsertoService deleteConsertoService(ConsertoRepository repo) {
         return new DeleteConsertoServiceImpl(repo);
     }
-
 }
